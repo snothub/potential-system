@@ -29,9 +29,6 @@ spec:
             value: {{ .Values.database.rootPassword }}
           - name: MYSQL_DATABASE
             value: {{ .Values.database.databaseName }}
-          volumeMounts:
-          - name: init-script
-            mountPath: /docker-entrypoint-initdb.d
           resources:
             {{- toYaml .Values.database.resources | nindent 12 }}
           readinessProbe:
@@ -40,7 +37,3 @@ spec:
             initialDelaySeconds: 30
             periodSeconds: 10
             timeoutSeconds: 5
-      volumes:
-      - name: init-script
-        configMap:
-          name: {{ .Values.database.initScriptConfigMap }}

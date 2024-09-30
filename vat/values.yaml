@@ -24,4 +24,4 @@ database:
       memory: 256Mi
   rootPassword: password
   databaseName: distributors
-  initScriptConfigMap: init-script
+  initScriptConfigMap: init-cg
