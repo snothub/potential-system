@@ -3,7 +3,7 @@ versionTag: v0.1
 api:
   image:
     repository: docker.io/danijels/cg-product-api
-  replicas: 7
+  replicas: 2
   resources:
     limits:
       cpu: 500m
