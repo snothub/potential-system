@@ -1,4 +1,4 @@
-versionTag: v0.1
+versionTag: v0.3
 
 api:
   image:
@@ -12,7 +12,7 @@ api:
       cpu: 500m
       memory: 512Mi
   autoscaling:
-    enabled: true
+    enabled: false
     minReplicas: 2
     maxReplicas: 6
     targetCPUUtilizationPercentage: 80
