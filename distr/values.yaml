@@ -1,7 +1,8 @@
+versionTag: v0.1
+
 api:
   image:
     repository: docker.io/danijels/cg-distr-api
-    tag: v0.1
   replicas: 1
   resources:
     limits:
