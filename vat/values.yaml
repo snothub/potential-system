@@ -24,4 +24,3 @@ database:
       memory: 256Mi
   rootPassword: password
   databaseName: categories
-  initScriptConfigMap: init-cg
