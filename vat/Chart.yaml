@@ -1,0 +1,5 @@
+apiVersion: v2
+name: vatapi
+description: A Helm chart for VatApi and MySQL
+version: 0.1.0
+type: application

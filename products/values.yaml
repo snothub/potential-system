@@ -1,0 +1,38 @@
+api:
+  image:
+    repository: docker.io/danijels/cg-product-api
+  replicas: 1
+  resources:
+    limits:
+      cpu: 500m
+      memory: 1024Mi
+    requests:
+      cpu: 250m
+      memory: 512Mi
+  autoscaling:
+    enabled: false
+    minReplicas: 2
+    maxReplicas: 6
+    targetCPUUtilizationPercentage: 80
+    targetMemoryUtilizationPercentage: 80
+      
+database:
+  image:
+    repository: mysql
+    tag: "8.0"
+  replicas: 1
+  resources:
+    limits:
+      cpu: 500m
+      memory: 512Mi
+    requests:
+      cpu: 250m
+      memory: 256Mi
+  rootPassword: rootpassword
+  databaseName: productdb
+
+service:
+  apiPort: 8080
+  dbPort: 3306
+
+versionTag: v0.1

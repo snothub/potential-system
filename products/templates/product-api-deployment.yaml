@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-api
+  labels:
+    app: {{ .Release.Name }}api
+    release: {{ .Release.Name }}
+spec:
+  {{- if not .Values.api.autoscaling.enabled }}
+  replicas: {{ .Values.api.replicas }}
+  {{- end }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}api
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}api
+        release: {{ .Release.Name }}
+    spec:
+      initContainers:
+        - name: wait-for-db
+          image: busybox
+          command: ['sh', '-c', 'until nc -z {{ .Release.Name }}-dbsvc {{ .Values.service.dbPort }}; do echo waiting for db; sleep 2; done;']
+      containers:
+        - name: api
+          image: "{{ .Values.api.image.repository }}:{{ .Values.versionTag }}"
+          ports:
+          - name: http
+            containerPort: {{ .Values.service.apiPort }}
+            protocol: TCP
+          env:
+          - name: SPRING_DATASOURCE_URL
+            value: "jdbc:mysql://{{ .Release.Name }}-dbsvc:{{ .Values.service.dbPort }}/{{ .Values.database.databaseName }}?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC"
+          - name: SPRING_DATASOURCE_USERNAME
+            value: "root"
+          - name: SPRING_DATASOURCE_PASSWORD
+            value: "{{ .Values.database.rootPassword }}"
+          - name: SPRING_DATASOURCE_DRIVER_CLASS_NAME
+            value: "com.mysql.cj.jdbc.Driver"
+          - name: SPRING_JPA_DATABASE_PLATFORM
+            value: "org.hibernate.dialect.MySQL8Dialect"
+          - name: SPRING_JPA_HIBERNATE_DDL_AUTO
+            value: "update"
+          - name: SPRING_JPA_SHOW_SQL
+            value: "true"
+          resources:
+            {{- toYaml .Values.api.resources | nindent 12 }}

@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-db
+  labels:
+    app: {{ .Release.Name }}db
+    release: {{ .Release.Name }}
+spec:
+  replicas: {{ .Values.database.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}db
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}db
+        release: {{ .Release.Name }}
+    spec:
+      containers:
+        - name: db
+          image: "{{ .Values.database.image.repository }}:{{ .Values.database.image.tag }}"
+          ports:
+          - name: mysql
+            containerPort: {{ .Values.service.dbPort }}
+            protocol: TCP
+          env:
+          - name: MYSQL_ROOT_PASSWORD
+            value: {{ .Values.database.rootPassword }}
+          - name: MYSQL_DATABASE
+            value: {{ .Values.database.databaseName }}
+          volumeMounts:
+          - name: init-script
+            mountPath: /docker-entrypoint-initdb.d
+          resources:
+            {{- toYaml .Values.database.resources | nindent 12 }}
+          readinessProbe:
+            exec:
+              command: ["mysqladmin", "ping", "-u", "root", "-p$(MYSQL_ROOT_PASSWORD)"]
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            timeoutSeconds: 5
+      volumes:
+      - name: init-script
+        configMap:
+          name: {{ .Values.database.initScriptConfigMap }}

@@ -1,0 +1,6 @@
+apiVersion: v2
+name: distr-api-chart
+description: A Helm chart for deploying the Distributor API and its database
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
