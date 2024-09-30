@@ -1,3 +1,5 @@
+versionTag: v0.1
+
 api:
   image:
     repository: docker.io/danijels/cg-product-api
@@ -35,4 +37,3 @@ service:
   apiPort: 8080
   dbPort: 3306
 
-versionTag: v0.1
