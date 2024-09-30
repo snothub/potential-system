@@ -43,4 +43,4 @@ spec:
       volumes:
       - name: init-script
         configMap:
-          name: {{ .Values.database.initScriptConfigMap }}
+          name: {{ .Release.Name }}-{{ .Values.database.initScriptConfigMap }}
