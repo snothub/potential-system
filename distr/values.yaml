@@ -6,10 +6,10 @@ api:
   replicas: 1
   resources:
     limits:
-      cpu: 500m
+      cpu: 1000m
       memory: 1024Mi
     requests:
-      cpu: 250m
+      cpu: 500m
       memory: 512Mi
   autoscaling:
     enabled: true
@@ -25,10 +25,10 @@ database:
   replicas: 1
   resources:
     limits:
-      cpu: 500m
+      cpu: 1000m
       memory: 512Mi
     requests:
-      cpu: 250m
+      cpu: 500m
       memory: 256Mi
   rootPassword: password
   databaseName: distributors
