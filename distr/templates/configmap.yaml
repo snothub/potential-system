@@ -19,7 +19,7 @@ data:
         (100, "ASKO", "Kalbakken", 15, 45, 5),
         (101, "Posten", "Jerbanetorget", 10, 75, 6),
         (102, "DHL", "Oslo", 25, 86, 2),
-        (103, "HeltHjem", "Schibsted", 10, 90, 2)
+        (103, "HeltHjem", "Schibsted", 10, 90, 2);
 
     CREATE TABLE IF NOT EXISTS distr_category (
         distr_id INT NOT NULL,
@@ -37,4 +37,4 @@ data:
         (101, "book"),
         (102, "food"),
         (102, "book"),
-        (103, "book")
+        (103, "book");
