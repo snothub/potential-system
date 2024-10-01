@@ -1,0 +1,27 @@
+replicaCount: 1
+versionTag: v0.2
+
+image:
+  repository: your-docker-registry/article-api
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: false
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+# External API URLs
+externalApis:
+  productApi: "http://product-api"
+  distrApi: "http://distr-api"
+  vatApi: "http://vat-api"

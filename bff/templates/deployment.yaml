@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "article-api.fullname" . }}
+  labels:
+    {{- include "article-api.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "article-api.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "article-api.selectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.versionTag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 3000
+              protocol: TCP
+          env:
+            - name: PRODUCT_API_URL
+              value: {{ .Values.externalApis.productApi }}
+            - name: DISTR_API_URL
+              value: {{ .Values.externalApis.distrApi }}
+            - name: VAT_API_URL
+              value: {{ .Values.externalApis.vatApi }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
