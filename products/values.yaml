@@ -32,6 +32,7 @@ database:
       memory: 256Mi
   rootPassword: rootpassword
   databaseName: productdb
+  initScriptConfigMap: init-cg
 
 service:
   apiPort: 8080
