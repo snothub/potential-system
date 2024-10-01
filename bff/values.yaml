@@ -2,7 +2,7 @@ replicaCount: 1
 versionTag: v0.2
 
 image:
-  repository: your-docker-registry/article-api
+  repository: docker.io/danijels/cg-bff-api
   pullPolicy: IfNotPresent
 
 service:
