@@ -14,12 +14,12 @@ data:
     );
 
     insert into distributors
-    (name, address, percentage_fee, capacity, shipping) 
+    (id, name, address, percentage_fee, capacity, shipping) 
     VALUES
-        ("ASKO", "Kalbakken", 15, 45, 5),
-        ("Posten", "Jerbanetorget", 10, 75, 6),
-        ("DHL", "Oslo", 25, 86, 2),
-        ("HeltHjem", "Schibsted", 10, 90, 2)
+        (100, "ASKO", "Kalbakken", 15, 45, 5),
+        (101, "Posten", "Jerbanetorget", 10, 75, 6),
+        (102, "DHL", "Oslo", 25, 86, 2),
+        (103, "HeltHjem", "Schibsted", 10, 90, 2)
 
     CREATE TABLE IF NOT EXISTS distr_category (
         distr_id INT,
@@ -27,3 +27,14 @@ data:
         FOREIGN KEY (distr_id) REFERENCES distributors(id)
     );
 
+    insert into distr_category
+    (distr_id, cat) 
+    VALUES
+        (100, "cosm"),
+        (100, "food"),
+        (101, "cosm"),
+        (101, "toys"),
+        (101, "book"),
+        (102, "food"),
+        (102, "book"),
+        (103, "book")
