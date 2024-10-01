@@ -20,3 +20,10 @@ data:
         ("Posten", "Jerbanetorget", 10, 75, 6),
         ("DHL", "Oslo", 25, 86, 2),
         ("HeltHjem", "Schibsted", 10, 90, 2)
+
+CREATE TABLE IF NOT EXISTS distr_category (
+    distr_id INT,
+    cat VARCHAR(4),
+    FOREIGN KEY (distr_id) REFERENCES distributors(id)
+);
+
