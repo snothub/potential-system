@@ -9,7 +9,7 @@ data:
         name VARCHAR(255) NOT NULL,
         description VARCHAR(255) NULL,
         price double NOT NULL,
-        cat VARCHAR(4) NOT NULL,
+        cat VARCHAR(4) NOT NULL
     );
 
     insert into product
