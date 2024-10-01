@@ -8,13 +8,14 @@ data:
         id INT AUTO_INCREMENT PRIMARY KEY,
         name VARCHAR(255) NOT NULL,
         description VARCHAR(255) NULL,
-        price double NOT NULL
+        price double NOT NULL,
+        cat VARCHAR(4) NOT NULL,
     );
 
     insert into product
-    (name, description, price) 
+    (name, description, price, cat) 
     VALUES
-        ("Shampoo for the bald", "Because you're worth it!", 33),
-        ("Cuddly bear", "Get yourself some proper company", 75),
-        ("Some apples", "How do you like them apples?", 2),
-        ("Pride and Prejudice", "Read a great book for once!", 100)
+        ("Shampoo for the bald", "Because you're worth it!", 33, "cosm"),
+        ("Cuddly bear", "Get yourself some proper company", 75, "toys"),
+        ("Some apples", "How do you like them apples?", 2, "food"),
+        ("Pride and Prejudice", "Read a great book for once!", 100, "book")
