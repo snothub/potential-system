@@ -22,8 +22,8 @@ data:
         (103, "HeltHjem", "Schibsted", 10, 90, 2)
 
     CREATE TABLE IF NOT EXISTS distr_category (
-        distr_id INT,
-        cat VARCHAR(4),
+        distr_id INT NOT NULL,
+        cat VARCHAR(4) NOT NULL,
         FOREIGN KEY (distr_id) REFERENCES distributors(id)
     );
 
