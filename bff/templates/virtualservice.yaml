@@ -19,6 +19,6 @@ spec:
             X-Api: "true"
     match:
     - uri:
-        prefix: /api
+        prefix: /api/
     rewrite:
       uri: "/"
