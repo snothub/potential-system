@@ -21,4 +21,4 @@ spec:
     - uri:
         prefix: /api
     rewrite:
-      uri: ""
+      uri: "/"
