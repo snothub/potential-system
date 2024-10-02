@@ -28,7 +28,7 @@ spec:
       uri: "/"
   - route:
     - destination:
-        host: {{ include "cspserver.name" . }}-svc
+        host: {{ .Release.Name }}-svc
         port:
           number: {{ .Values.service.port }}
       headers:
