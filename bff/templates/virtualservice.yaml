@@ -38,3 +38,5 @@ spec:
     match:
     - uri:
         prefix: /api
+    rewrite:
+      uri: "/"
