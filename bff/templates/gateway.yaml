@@ -6,7 +6,7 @@ spec:
   parentRefs:
     - kind: Gateway
       name: wsgw
-      sectionName: http-ui-gw
+      sectionName: http-bff-gw
   rules:
   - matches:
     - path:
