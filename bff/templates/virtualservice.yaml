@@ -1,0 +1,40 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: {{ .Release.Name }}-istio-route
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - ws-istio-gateway
+  http:
+  - route:
+    - destination:
+        host: {{ .Release.Name }}-svc
+        port:
+          number: {{ .Values.service.port }}
+      headers:
+        response:
+          set:
+            gateway: "true"
+    match:
+    - uri:
+        exact: /bff
+    headers:
+      request:
+        set:
+          Content-Type: "application/json"
+    rewrite:
+      uri: "/"
+  - route:
+    - destination:
+        host: {{ include "cspserver.name" . }}-svc
+        port:
+          number: {{ .Values.service.port }}
+      headers:
+        response:
+          set:
+            X-Api: "true"
+    match:
+    - uri:
+        prefix: /api
