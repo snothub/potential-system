@@ -1,4 +1,4 @@
-versionTag: v0.6
+versionTag: v0.7.1
 
 api:
   vatApi: "http://vat-svc:8080"
