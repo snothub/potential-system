@@ -1,5 +1,5 @@
 replicaCount: 1
-versionTag: v0.6.7
+versionTag: v0.7
 
 image:
   repository: docker.io/danijels/cg-bff-api
@@ -24,4 +24,3 @@ resources:
 externalApis:
   productApi: "http://prod-svc:8080"
   distrApi: "http://distr-svc:8080"
-  vatApi: "http://vat-svc:8080"

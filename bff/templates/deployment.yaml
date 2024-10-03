@@ -28,7 +28,5 @@ spec:
               value: {{ .Values.externalApis.productApi }}
             - name: DISTR_API_URL
               value: {{ .Values.externalApis.distrApi }}
-            - name: VAT_API_URL
-              value: {{ .Values.externalApis.vatApi }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
