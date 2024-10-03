@@ -6,7 +6,7 @@ spec:
   hosts:
   - "*"
   gateways:
-  - ws-istio-gateway
+  - {{ .Release.Name }}-istio-gateway
   http:
   - route:
     - destination:
