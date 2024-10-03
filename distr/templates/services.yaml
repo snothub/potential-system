@@ -6,6 +6,7 @@ metadata:
   labels:
     app: {{ .Release.Name }}svc
     release: {{ .Release.Name }}
+    version: {{ .Values.versionTag }}
 spec:
   type: ClusterIP
   ports:
@@ -24,6 +25,7 @@ metadata:
   labels:
     app: {{ .Release.Name }}dbsvc
     release: {{ .Release.Name }}
+    version: {{ .Values.versionTag }}
 spec:
   type: ClusterIP
   ports:

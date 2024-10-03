@@ -4,6 +4,7 @@ metadata:
   name: {{ .Release.Name }}-svc
   labels:
     app: {{ .Release.Name }}svc
+    version: {{ .Values.versionTag }}
 spec:
   type: {{ .Values.service.type }}
   ports:

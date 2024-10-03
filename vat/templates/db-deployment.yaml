@@ -5,6 +5,7 @@ metadata:
   labels:
     app: {{ .Release.Name }}db
     release: {{ .Release.Name }}
+    version: {{ .Values.versionTag }}
 spec:
   replicas: {{ .Values.database.replicas }}
   selector:
