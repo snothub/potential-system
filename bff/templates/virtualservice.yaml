@@ -16,7 +16,7 @@ spec:
       headers:
         response:
           set:
-            X-Api: "true"
+            X-Version: "{{ .Release.Name }}:{{ .Values.versionTag }}"
     match:
     - uri:
         prefix: /api/
