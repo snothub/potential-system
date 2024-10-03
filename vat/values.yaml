@@ -22,5 +22,5 @@ database:
     requests:
       cpu: 250m
       memory: 256Mi
-  rootPassword: password
+  rootPassword: rootpassword
   databaseName: categories

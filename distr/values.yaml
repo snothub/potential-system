@@ -30,7 +30,7 @@ database:
     requests:
       cpu: 500m
       memory: 256Mi
-  rootPassword: password
+  rootPassword: rootpassword
   databaseName: distributors
   initScriptConfigMap: init-cg
 
