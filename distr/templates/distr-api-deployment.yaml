@@ -19,6 +19,7 @@ spec:
       labels:
         app: {{ .Release.Name }}api
         release: {{ .Release.Name }}
+        version: {{ .Values.versionTag }}
     spec:
       initContainers:
         - name: wait-for-db

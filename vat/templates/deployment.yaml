@@ -17,6 +17,7 @@ spec:
       labels:
         app: {{ .Release.Name }}api
         release: {{ .Release.Name }}
+        version: {{ .Values.versionTag }}
     spec:
       containers:
         - name: {{ .Chart.Name }}

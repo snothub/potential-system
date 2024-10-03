@@ -17,6 +17,7 @@ spec:
       labels:
         app: {{ .Release.Name }}db
         release: {{ .Release.Name }}
+        version: {{ .Values.versionTag }}
     spec:
       containers:
         - name: db
