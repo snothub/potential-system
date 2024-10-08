@@ -1,0 +1,39 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Sensor
+metadata:
+  name: github-sensor
+spec:
+  template:
+    serviceAccountName: argo-events-sa
+  dependencies:
+    - name: github-dep
+      eventSourceName: github-event-source
+      eventName: example-github-source
+  triggers:
+    - template:
+        name: github-workflow-trigger
+        k8s:
+          operation: create
+          source:
+            resource:
+              apiVersion: argoproj.io/v1alpha1
+              kind: Workflow
+              metadata:
+                generateName: docker-build-push-
+              spec:
+                entrypoint: docker-build-push
+                arguments:
+                  parameters:
+                  - name: git-repo
+                    value: "{{ .Values.repoUri }}"
+                  - name: subfolder
+                    value: "{{ .Values.subFolder }}"
+                  - name: docker-repo
+                    value: "danijels/cg-{{ .Values.imageTag }}-api"
+                workflowTemplateRef:
+                  name: docker-build-push-template
+          parameters:
+            - src:
+                dependencyName: github-dep
+                dataKey: body.ref
+              dest: spec.arguments.parameters.0.value

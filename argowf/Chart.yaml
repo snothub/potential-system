@@ -1,0 +1,5 @@
+apiVersion: v2
+name: argo-wf
+description: A Helm chart for the Argo Workflow
+version: 0.1.0
+appVersion: "1.0.0"
