@@ -1,0 +1,19 @@
+replicaCount: 1
+versionTag: v0.1
+
+image:
+  repository: docker.io/danijels/cg-ui-api
+  pullPolicy: IfNotPresent
+service:
+  type: ClusterIP
+  port: 80
+ingress:
+  enabled: true
+  className: ""
+  annotations: {}
+  hosts:
+    - host: chart-example.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+apiBaseUrl: http://bff/api
