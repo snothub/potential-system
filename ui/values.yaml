@@ -1,9 +1,9 @@
 replicaCount: 1
-versionTag: v0.1
+versionTag: v0.2.17
 
 image:
   repository: docker.io/danijels/cg-ui-api
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
 service:
   type: ClusterIP
   port: 80
@@ -16,4 +16,4 @@ ingress:
       paths:
         - path: /
           pathType: ImplementationSpecific
-apiBaseUrl: http://bff/api
+apiBaseUrl: http://20.251.73.226/api

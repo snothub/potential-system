@@ -19,9 +19,9 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ include "react-spa.fullname" . }}
+  name: {{ .Release.Name }}-gw
   labels:
-    app: {{ .Release.Name }}ing
+    app: {{ .Release.Name }}gw
     version: {{ .Values.versionTag }}
   {{- with .Values.ingress.annotations }}
   annotations:
@@ -41,7 +41,7 @@ spec:
             pathType: {{ .pathType }}
             backend:
               service:
-                name: {{ .Release.Name }}-ing
+                name: {{ $.Release.Name }}-ing
                 port: 
                   number: {{ $.Values.service.port }}
           {{- end }}
