@@ -21,9 +21,17 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.versionTag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
-            - name: http
-              containerPort: 80
-              protocol: TCP
+          - name: http
+            containerPort: 80
+            protocol: TCP
           env:
-            - name: REACT_APP_API_BASE_URL
-              value: {{ .Values.apiBaseUrl }}
+          - name: API_BASE_URL
+            value: {{ .Values.apiBaseUrl }}
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
