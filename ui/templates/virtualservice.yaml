@@ -20,3 +20,5 @@ spec:
     match:
     - uri:
         prefix: /ui/
+    rewrite:
+      uri: "/"
