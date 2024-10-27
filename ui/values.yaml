@@ -1,5 +1,5 @@
 replicaCount: 1
-versionTag: v0.2.30
+versionTag: v0.2.33
 
 image:
   repository: docker.io/danijels/cg-ui-api
