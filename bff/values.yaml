@@ -1,5 +1,5 @@
 replicaCount: 1
-versionTag: v0.8.2
+versionTag: v0.8.3
 
 image:
   repository: docker.io/danijels/cg-bff-api
