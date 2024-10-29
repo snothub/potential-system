@@ -19,6 +19,6 @@ spec:
             X-Version: "{{ .Release.Name }}:{{ .Values.versionTag }}"
     match:
     - uri:
-        prefix: /api/
+        prefix: /api/{{ .Release.Namespace }}/
     rewrite:
       uri: "/"

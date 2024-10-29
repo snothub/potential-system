@@ -26,7 +26,7 @@ spec:
             protocol: TCP
           env:
           - name: API_BASE_URL
-            value: {{ .Values.apiBaseUrl }}
+            value: {{ .Values.apiBaseUrl }}/{{ .Release.Namespace }}
           readinessProbe:
             httpGet:
               path: /
