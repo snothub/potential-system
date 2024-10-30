@@ -19,7 +19,7 @@ spec:
             X-Version: "{{ .Release.Name }}:{{ .Values.versionTag }}"
     match:
     - uri:
-        prefix: /ui/{{ .Release.Namespace }}/
+        prefix: /ui/
     rewrite:
       uri: "/"
 
