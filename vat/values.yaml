@@ -1,7 +1,7 @@
 versionTag: v1.1
 
 api:
-  replicaCount: 2
+  replicaCount: 1
   image:
     repository: docker.io/danijels/cg-vat-api
     pullPolicy: IfNotPresent
