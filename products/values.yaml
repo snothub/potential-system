@@ -1,4 +1,4 @@
-versionTag: v0.7.1
+versionTag: v0.8
 
 api:
   vatApi: "http://vat-svc:8080"
@@ -38,4 +38,3 @@ database:
 service:
   apiPort: 8080
   dbPort: 3306
-
