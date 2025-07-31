@@ -16,5 +16,5 @@ ingress:
     paths:
     - path: /
       pathType: ImplementationSpecific
-apiBaseUrl: http://20.251.73.226/api
+apiBaseUrl: http://localhost/api
 appBaseUrl: /ui
