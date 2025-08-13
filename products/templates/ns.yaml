@@ -4,12 +4,3 @@ metadata:
   name: {{ .Release.Namespace }}
   labels:
     istio-injection: enabled
-    {{- range $key, $value := .Values.labels }}
-    {{ $key }}: {{ $value | quote }}
-    {{- end }}
-  annotations:
-  {{- with .Values.serviceAccount.annotations }}
-    meta.helm.sh/release-name: "{{ $.Release.Name }}"
-    meta.helm.sh/release-namespace: "{{ $.Release.Namespace }}"
-    {{- toYaml . | nindent 4 }}
-  {{- end }}
