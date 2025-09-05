@@ -4,32 +4,18 @@ api:
   image:
     repository: docker.io/danijels/cg-distr-api
   replicas: 1
-  resources:
-    limits:
-      cpu: 1000m
-      memory: 1024Mi
-    requests:
-      cpu: 500m
-      memory: 512Mi
   autoscaling:
     enabled: false
     minReplicas: 2
     maxReplicas: 6
     targetCPUUtilizationPercentage: 80
     targetMemoryUtilizationPercentage: 80
-      
+
 database:
   image:
     repository: mysql
     tag: "8.0"
   replicas: 1
-  resources:
-    limits:
-      cpu: 1000m
-      memory: 512Mi
-    requests:
-      cpu: 500m
-      memory: 256Mi
   rootPassword: rootpassword
   databaseName: distributors
   initScriptConfigMap: init-cg
@@ -37,3 +23,11 @@ database:
 service:
   apiPort: 8080
   dbPort: 3306
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 1024Mi
+  requests:
+    cpu: 500m
+    memory: 1024Mi

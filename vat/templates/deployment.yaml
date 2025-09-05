@@ -38,3 +38,5 @@ spec:
               value: {{ .Values.database.rootPassword }}
             - name: DB_NAME
               value: {{ .Values.database.databaseName }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}

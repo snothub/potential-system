@@ -36,4 +36,4 @@ spec:
           - name: DATABASE_URL
             value: "mysql://root:{{ .Values.database.rootPassword }}@{{ .Release.Name }}-dbsvc:{{ .Values.service.dbPort }}/{{ .Values.database.databaseName }}"
           resources:
-            {{- toYaml .Values.api.resources | nindent 12 }}
+            {{- toYaml .Values.resources | nindent 12 }}

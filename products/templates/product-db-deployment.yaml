@@ -32,7 +32,7 @@ spec:
           - name: MYSQL_DATABASE
             value: "{{ .Values.database.databaseName }}"
           resources:
-            {{- toYaml .Values.database.resources | nindent 12 }}
+            {{- toYaml .Values.resources | nindent 12 }}
           readinessProbe:
             exec:
               command: ["mysqladmin", "ping", "-u", "root", "-p$(MYSQL_ROOT_PASSWORD)"]

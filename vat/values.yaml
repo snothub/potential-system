@@ -15,12 +15,13 @@ database:
     repository: mysql
     tag: "8.0"
   replicas: 1
-  resources:
-    limits:
-      cpu: 500m
-      memory: 1024Mi
-    requests:
-      cpu: 500m
-      memory: 1024Mi
   rootPassword: rootpassword
   databaseName: categories
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 1024Mi
+  requests:
+    cpu: 500m
+    memory: 1024Mi

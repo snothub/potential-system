@@ -35,7 +35,7 @@ spec:
           - name: init-script
             mountPath: /docker-entrypoint-initdb.d
           resources:
-            {{- toYaml .Values.database.resources | nindent 12 }}
+            {{- toYaml .Values.resources | nindent 12 }}
           readinessProbe:
             exec:
               command: ["mysqladmin", "ping", "-u", "root", "-p$(MYSQL_ROOT_PASSWORD)"]
