@@ -1,5 +1,7 @@
 replicaCount: 1
 versionTag: v0.3.16
+apiBaseUrl: http://20.251.16.133/api
+appBaseUrl: /ui
 
 image:
   repository: docker.io/danijels/cg-ui-api
@@ -16,5 +18,11 @@ ingress:
     paths:
     - path: /
       pathType: ImplementationSpecific
-apiBaseUrl: http://20.251.16.133/api
-appBaseUrl: /ui
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 1024Mi
+  requests:
+    cpu: 500m
+    memory: 1024Mi
