@@ -15,12 +15,12 @@ ingress:
 resources:
   limits:
     cpu: 100m
-    memory: 64Mi
+    memory: 128Mi
   requests:
     cpu: 100m
-    memory: 64Mi
+    memory: 128Mi
 
 # External API URLs
 externalApis:
-  productApi: "http://prod-svc:8080"
-  distrApi: "http://distr-svc:8080"
+  productApi: "http://prodapp-svc:8080"
+  distrApi: "http://distrapp-svc:8080"
