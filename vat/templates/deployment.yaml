@@ -29,7 +29,7 @@ spec:
               protocol: TCP
           env:
             - name: DB_HOST
-              value: "{{ .Release.Name }}-dbsvc"
+              value: "vatdb-svc"
             - name: PORT
               value: "{{ .Values.api.service.port }}"
             - name: DB_USER
