@@ -30,7 +30,7 @@ spec:
           image: "{{ .Values.api.image.repository }}:{{ .Values.versionTag }}"
           ports:
           - name: http
-            containerPort: {{ .Values.service.apiPort }}
+            containerPort: {{ .Values.service.containerPort }}
             protocol: TCP
           env:
           - name: DATABASE_URL
