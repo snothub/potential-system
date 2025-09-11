@@ -23,6 +23,7 @@ database:
 
 service:
   apiPort: 80
+  containerPort: 8080
   dbPort: 3306
 
 resources:
