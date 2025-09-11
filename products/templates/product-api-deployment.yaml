@@ -24,7 +24,7 @@ spec:
       initContainers:
         - name: wait-for-db
           image: busybox
-          command: ['sh', '-c', 'until nc -z {{ .Release.Name }}-dbsvc {{ .Values.service.dbPort }}; do echo waiting for db; sleep 2; done;']
+          command: ['sh', '-c', 'until nc -z productdb-svc {{ .Values.service.dbPort }}; do echo waiting for db; sleep 2; done;']
       containers:
         - name: api
           image: "{{ .Values.api.image.repository }}:{{ .Values.versionTag }}"
@@ -34,7 +34,7 @@ spec:
             protocol: TCP
           env:
           - name: SPRING_DATASOURCE_URL
-            value: "jdbc:mysql://{{ .Release.Name }}-dbsvc:{{ .Values.service.dbPort }}/{{ .Values.database.databaseName }}?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC"
+            value: "jdbc:mysql://productdb-svc:{{ .Values.service.dbPort }}/{{ .Values.database.databaseName }}?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC"
           - name: SPRING_DATASOURCE_USERNAME
             value: "root"
           - name: SPRING_DATASOURCE_PASSWORD
