@@ -22,5 +22,5 @@ resources:
 
 # External API URLs
 externalApis:
-  productApi: "http://prod-svc:8080"
-  distrApi: "http://distr-svc:8080"
+  productApi: "http://product-svc"
+  distrApi: "http://distr-svc"

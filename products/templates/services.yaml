@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Release.Name }}-svc
+  name: product-svc
   labels:
     app: {{ .Release.Name }}svc
     release: {{ .Release.Name }}
@@ -20,7 +20,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Release.Name }}-dbsvc
+  name: productdb-svc
   labels:
     app: {{ .Release.Name }}dbsvc
     release: {{ .Release.Name }}

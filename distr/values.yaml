@@ -21,7 +21,7 @@ database:
   initScriptConfigMap: init-cg
 
 service:
-  apiPort: 8080
+  apiPort: 80
   dbPort: 3306
 
 resources:

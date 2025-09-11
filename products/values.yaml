@@ -1,7 +1,7 @@
 versionTag: v0.8
 
 api:
-  vatApi: "http://vat-svc:8080"
+  vatApi: "http://vat-svc"
   image:
     repository: docker.io/danijels/cg-product-api
   replicas: 1
@@ -22,7 +22,7 @@ database:
   initScriptConfigMap: init-cg
 
 service:
-  apiPort: 8080
+  apiPort: 80
   dbPort: 3306
 
 resources:
