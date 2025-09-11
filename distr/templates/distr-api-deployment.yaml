@@ -24,7 +24,7 @@ spec:
       initContainers:
         - name: wait-for-db
           image: busybox
-          command: ['sh', '-c', 'until nc -z {{ .Release.Name }}-dbsvc {{ .Values.service.dbPort }}; do echo waiting for db; sleep 2; done;']
+          command: ['sh', '-c', 'until nc -z distrdb-svc:{{ .Values.service.dbPort }}; do echo waiting for db; sleep 2; done;']
       containers:
         - name: api
           image: "{{ .Values.api.image.repository }}:{{ .Values.versionTag }}"
@@ -34,6 +34,6 @@ spec:
             protocol: TCP
           env:
           - name: DATABASE_URL
-            value: "mysql://root:{{ .Values.database.rootPassword }}@{{ .Release.Name }}-dbsvc:{{ .Values.service.dbPort }}/{{ .Values.database.databaseName }}"
+            value: "mysql://root:{{ .Values.database.rootPassword }}@distrdb-svc:{{ .Values.service.dbPort }}/{{ .Values.database.databaseName }}"
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
